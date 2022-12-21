@@ -1,0 +1,41 @@
+const footer_ru = {
+  "Services": "Услуги",
+  "About company": "О компании",
+  "Other": "Прочее",
+  "Help": "Помощь",
+  "Internet": "Интернет",
+  "IP TV": "IP - телевидение",
+  "Add. services": "Доп. услуги",
+  "For business": "Для бизнеса",
+  "Contacts": "Контакты",
+  "News": "Новости",
+  "Work in Comnet": "Работа в Comnet",
+  "Equipment": "Оборудование",
+  "Coverage": "Зона покрытия",
+  "Questions and answers": "Вопросы и ответы",
+  "Payment Methods": "Способы оплаты",
+  "Master's call": "Вызов мастера",
+  "Forms and documents": "Бланки и документы",
+};
+
+const footer_uz = {
+  "Services": "Xizmatlar",
+  "About company": "Kompaniya haqida",
+  "Other": "Boshqalar",
+  "Help": "Yordam",
+  "Internet": "Internet",
+  "IP TV": "IP TV",
+  "Add. services": "Qo'shimcha xizmatlar",
+  "For business": "Biznes uchun",
+  "Contacts": "Kontaktlar",
+  "News": "Yangiliklar",
+  "Work in Comnet": "Comnet da ishlash",
+  "Equipment": "Uskunalar",
+  "Coverage": "Qamrov hududlari",
+  "Questions and answers": "Savol va javoblar",
+  "Payment Methods": "To'lov usullar",
+  "Master's call": "Mutaxassis yordami",
+  "Forms and documents": "Hujjatlar va blankalar",
+};
+
+export default {footer_ru, footer_uz};

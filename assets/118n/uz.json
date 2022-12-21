@@ -1,0 +1,26 @@
+{
+    "translation": {
+        "login": "Login",
+        "password":"Parol",
+        "signIn":"Kirish",
+        "errorLogin":"Foydalanuvchi topilmadi",
+        "cardAbon":"Abonent kartasi",
+        "numberContract":"Shartnoma raqami",
+        "city":"Shahar",
+        "phoneNumber":"Telefon raqami",
+        "street":"Ko'cha",
+        "flatAdress":"Uy/kvartira",
+        "sendError":"Xatolik haqida habar bering",
+        "changePassword":"Parolni o'zgartirish",
+        "currentStatus":"Joriy holat",
+        "lastDays":"aktiv kunlar",
+        "actived":"Faol",
+        "disabled": "Faol emas",
+        "notActivated": "Faol emas",
+        "suspended": "To'xtatilgan",
+        "SMD": "SMD",
+        "balance":"Balans:",
+        "bonus":"Chegirma",
+        "more":"Batafsil"
+    }
+}

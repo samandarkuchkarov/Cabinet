@@ -1,0 +1,27 @@
+{
+    "translation": {
+        "login": "Логин",
+        "password":"Пароль",
+        "signIn":"Войти",
+        "errorLogin":"Пользователь не найден",
+        "cardAbon":"Карточка абонента",
+        "numberContract":"№ договора",
+        "city":"Город",
+        "phoneNumber":"№ телефона",
+        "street":"Улица",
+        "flatAdress":"Дом/Квартира",
+        "sendError":"Сообщить об ошибке",
+        "changePassword":"Сменить пароль",
+        "currentStatus":"Текукщий статус",
+        "lastDays":"осталось активных дней:",
+        "actived":"Активен",
+        "disabled": "Отключен",
+        "notActivated": "Не активирован",
+        "suspended": "Приостановлен",
+        "SMD": "СМД",
+        "balance":"Баланс:",
+        "bonus":"Скидка",
+        "more":"Подробнее"
+
+    }
+}
