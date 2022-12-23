@@ -1,5 +1,5 @@
+import {NavigatorScreenParams} from '@react-navigation/native';
 import {ScaledSize} from 'react-native';
-
 export type WindowSize = {
   WINDOW_HEIGHT?: ScaledSize | undefined;
   WINDOW_WIDTH?: ScaledSize | undefined;
@@ -10,13 +10,16 @@ export enum AppTheme {
   dark = 'dark',
   system = 'system',
 }
-export type RootStackParamList = {
-  home: undefined;
-  statistics: undefined;
+export type TabParamList = {
+  bonus: undefined;
+  static: undefined;
   profile: undefined;
   wallet: undefined;
   settings: undefined;
-  homeNavigation: undefined;
+};
+
+export type RootStackParamList = {
+  homeNavigation: NavigatorScreenParams<TabParamList>;
   authentication: undefined;
 };
 

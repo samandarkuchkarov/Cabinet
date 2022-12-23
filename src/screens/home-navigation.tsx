@@ -8,49 +8,39 @@ import {RouteProp} from '@react-navigation/core/lib/typescript/src/types';
 
 import {Color, getColor} from '@app/colors';
 import {Header} from '@app/components/header';
-import {TabBarIcon} from '@app/components/tab-bar-icon';
+import {TabBar, TabbarProps} from '@app/components/tab-bar';
 import {Home} from '@app/screens/home';
 import {Profile} from '@app/screens/profile';
 import {Settings} from '@app/screens/settings';
 import {Statistics} from '@app/screens/statistics';
 import {Wallet} from '@app/screens/wallet';
-import {RootStackParamList} from '@app/types';
-import {IS_IOS} from '@app/variables';
+import {TabParamList} from '@app/types';
 
-const Tab = createBottomTabNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<TabParamList>();
 
-export const screenOptions = ({
-  route,
-}: {
-  route: RouteProp<RootStackParamList>;
+export const screenOptions = ({}: {
+  route: RouteProp<TabParamList>;
   navigation?: any;
 }): BottomTabNavigationOptions => ({
-  headerShadowVisible: false,
   headerStyle: {
     backgroundColor: getColor(Color.bg1),
+    shadowColor: getColor(Color.black),
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.13,
   },
-  tabBarStyle: {
-    backgroundColor: getColor(Color.bg1),
-    borderTopWidth: 0,
-    elevation: 0,
-    height: IS_IOS ? 80 : 60,
-    marginBottom: IS_IOS ? 0 : 0,
-  },
-  tabBarItemStyle: {
-    marginTop: IS_IOS ? 5 : 8,
-    height: IS_IOS ? 50 : 40,
-  },
+
   tabBarShowLabel: false,
   headerTitle: () => <Header />,
-  tabBarIcon: ({focused}) => <TabBarIcon focused={focused} route={route} />,
+  // tabBarIcon: ({focused}) => <TabBarIcon focused={focused} route={route} />,
 });
 
 export function HomeNavigation() {
+  const tabFunction = (props: TabbarProps) => <TabBar {...props} />;
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="home" component={Home} />
-      <Tab.Screen name="statistics" component={Statistics} />
+    <Tab.Navigator tabBar={tabFunction} screenOptions={screenOptions}>
       <Tab.Screen name="profile" component={Profile} />
+      <Tab.Screen name="bonus" component={Home} />
+      <Tab.Screen name="static" component={Statistics} />
       <Tab.Screen name="wallet" component={Wallet} />
       <Tab.Screen name="settings" component={Settings} />
     </Tab.Navigator>

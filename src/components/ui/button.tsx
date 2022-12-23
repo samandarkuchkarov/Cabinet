@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 import {useCallback} from 'react';
 
@@ -33,6 +34,7 @@ export type ButtonProps = Omit<ViewProps, 'children'> & {
   textColor?: string;
   style: ViewStyle;
   iconWidth?: number;
+  fontFamily?: string;
 } & ButtonValue &
   ButtonRightIconType &
   ButtonLeftIconType;
@@ -62,6 +64,8 @@ export const Button = ({
   loading = false,
   iconWidth,
   style,
+  textColor,
+  fontFamily,
   ...props
 }: ButtonProps) => {
   const {t} = useTranslation();
@@ -92,7 +96,16 @@ export const Button = ({
                 height={iconWidth || 17}
               />
             )}
-            <Text style={styles.text}>{t(title)}</Text>
+            <Text
+              style={[
+                styles.text,
+                {
+                  color: textColor ? textColor : getColor(Color.textBaseButton),
+                  fontFamily: fontFamily ? fontFamily : 'Rubik-Medium',
+                },
+              ]}>
+              {t(title)}
+            </Text>
             {iconRight && (
               <Icon
                 name={iconRight}

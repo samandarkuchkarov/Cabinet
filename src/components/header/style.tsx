@@ -38,4 +38,20 @@ export const styles = createTheme({
     backgroundColor: Color.line,
     marginHorizontal: 10,
   },
+  logoutText: {
+    color: Color.bg4,
+    fontSize: 13,
+    fontFamily: 'Rubik-Regular',
+  },
+  logout: {
+    backgroundColor: '#F1F1F1',
+    borderRadius: 50,
+    padding: 5,
+    paddingHorizontal: 7,
+    marginLeft: 5,
+  },
+  leftContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });

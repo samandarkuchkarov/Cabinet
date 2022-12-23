@@ -23,6 +23,10 @@ export function logOut() {
   return async (dispatch: Dispatch) => {
     await storeData(null, 'keys');
     dispatch({
+      type: UPDATE_HOST,
+      payload: false,
+    });
+    dispatch({
       type: LOG_OUT,
       payload: false,
     });
@@ -118,6 +122,26 @@ export function setCurrentariff() {
           payload: mainData.data[0],
         });
       }
+    }
+  };
+}
+
+export function setAllTariff() {
+  return async (
+    dispatch: Dispatch,
+    getState: () => {user: InitialUserStateProps},
+  ) => {
+    const user = getState().user;
+    if (typeof user.host !== 'boolean') {
+      // const mainData = await user.host.get(
+      //   '/api.cgi/user/' + user.key.uid + '/internet/tariffs/all',
+      // );
+      // if (mainData && mainData.data) {
+      // dispatch({
+      //   type: SET_CURRENT_TARIFF,
+      //   payload: mainData.data[0],
+      // });
+      // }
     }
   };
 }

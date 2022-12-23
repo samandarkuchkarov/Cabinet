@@ -46,6 +46,7 @@ module.exports = {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
         'no-undef': 'off',
+        'react-hooks/exhaustive-deps': 'off',
         'import/no-default-export': 'error',
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 'off',

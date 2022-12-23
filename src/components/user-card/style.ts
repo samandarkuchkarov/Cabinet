@@ -45,13 +45,16 @@ export const styles = createTheme({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '80%',
+    width: '90%',
   },
   infoItem: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '100%',
     marginBottom: 10,
+  },
+  top10: {
+    marginTop: 5,
   },
   placeHolder: {
     color: Color.placeHolder,
@@ -61,6 +64,7 @@ export const styles = createTheme({
   infoItemText: {
     color: Color.textBase,
     fontFamily: 'Rubik-Regular',
+    fontSize: 16,
   },
   block: {
     width: '40%',
@@ -71,12 +75,14 @@ export const styles = createTheme({
     alignItems: 'center',
     marginVertical: 20,
   },
+  borderSendError: {
+    borderBottomColor: Color.textError,
+    borderBottomWidth: 1,
+    marginLeft: 10,
+  },
   sendErrorText: {
     color: Color.textError,
     fontFamily: 'Rubik-Regular',
-    marginLeft: 10,
-    borderBottomColor: Color.textError,
-    borderBottomWidth: 1,
   },
   changeBtn: {
     backgroundColor: Color.bg3,
@@ -180,7 +186,37 @@ export const styles = createTheme({
   more: {
     color: Color.textError,
     fontFamily: 'Rubik-Regular',
+  },
+  border: {
     borderBottomColor: Color.textError,
     borderBottomWidth: 1,
+  },
+  redPrice: {
+    color: Color.textError,
+    fontFamily: 'Rubik-Regular',
+    fontSize: 16,
+    marginTop: 5,
+  },
+  nextPayInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 5,
+  },
+  mainlyBtn: {
+    backgroundColor: Color.bg3,
+    marginTop: 20,
+    marginBottom: 5,
+  },
+  secondlyBtn: {
+    backgroundColor: Color.bg1,
+    borderColor: Color.textError,
+    borderWidth: 2,
+    marginTop: 5,
+  },
+  tariffName: {
+    color: Color.tariffColor,
+    fontFamily: 'Rubik-Bold',
+    textAlign: 'center',
+    fontSize: 24,
   },
 });

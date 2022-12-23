@@ -149,3 +149,16 @@ export function convertToCurrency(amount: number) {
 
   return result.join('');
 }
+
+export const getNextPay = (
+  monthleFee: number,
+  reduction: number,
+  deposit: number,
+) => {
+  const withoutSkidkaPriceTariff = monthleFee - (monthleFee / 100) * reduction;
+  if (withoutSkidkaPriceTariff < deposit) {
+    return 0;
+  } else {
+    return withoutSkidkaPriceTariff - deposit;
+  }
+};

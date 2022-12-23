@@ -6,12 +6,14 @@ import {useTranslation} from 'react-i18next';
 import {Text, View} from 'react-native';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
+import {Color, getColor} from '@app/colors';
 import {Button} from '@app/components/ui/button';
 import {Icon} from '@app/components/ui/icon';
 import {
   convertToCurrency,
   convertToFullDate,
   getLastDays,
+  getNextPay,
   getUserStatus,
 } from '@app/helpers';
 import {useTypedSelector} from '@app/hooks';
@@ -35,8 +37,8 @@ export function UserCard() {
     deposit,
     reduction,
     monthFee,
-    // monthFee,
-    // tpName,
+    credit,
+    tpName,
   ] = useTypedSelector(state => [
     state.user.fio,
     state.user.city,
@@ -52,11 +54,12 @@ export function UserCard() {
     state.user.deposit,
     state.user.reduction,
     state.user.monthFee,
-    // state.user.tpName,
+    state.user.credit,
+    state.user.tpName,
   ]);
 
   const status = getUserStatus(disable, internetStatus);
-  const fill = Math.trunc((reduction / monthFee) * 100);
+
   return (
     <View style={styles.wrapper}>
       <Text style={styles.title}>{t('cardAbon')}</Text>
@@ -67,34 +70,50 @@ export function UserCard() {
         </View>
         <View style={styles.info}>
           <View>
-            <Text style={styles.placeHolder}>{t('numberContract')}:</Text>
-            <Text style={styles.infoItemText}>№ {contractId}</Text>
-            <Text style={styles.placeHolder}>{t('city')}:</Text>
-            <Text style={styles.infoItemText}>{city}</Text>
-            <Text style={styles.placeHolder}>{t('street')}:</Text>
-            <Text style={styles.infoItemText}>{addressStreet}</Text>
+            <View style={styles.top10}>
+              <Text style={styles.placeHolder}>{t('numberContract')}:</Text>
+              <Text style={styles.infoItemText}>№ {contractId}</Text>
+            </View>
+            <View style={styles.top10}>
+              <Text style={styles.placeHolder}>{t('city')}:</Text>
+              <Text style={styles.infoItemText}>{city}</Text>
+            </View>
+            <View style={styles.top10}>
+              <Text style={styles.placeHolder}>{t('street')}:</Text>
+              <Text style={styles.infoItemText}>{addressStreet}</Text>
+            </View>
           </View>
           <View>
-            <Text style={styles.placeHolder}>{t('login')}:</Text>
-            <Text style={styles.infoItemText}>{login}</Text>
-            <Text style={styles.placeHolder}>{t('phoneNumber')}:</Text>
-            <Text style={styles.infoItemText}>
-              {cellPhone[0]} <Icon name="edit" width={17} height={17} />
-            </Text>
-            <Text style={styles.placeHolder}>{t('flatAdress')}</Text>
-            <Text style={styles.infoItemText}>
-              {addressBuild}/{addressFlat}
-            </Text>
+            <View style={styles.top10}>
+              <Text style={styles.placeHolder}>{t('login')}:</Text>
+              <Text style={styles.infoItemText}>{login}</Text>
+            </View>
+            <View style={styles.top10}>
+              <Text style={styles.placeHolder}>{t('phoneNumber')}:</Text>
+              <Text style={styles.infoItemText}>
+                {cellPhone[0]} <Icon name="edit" width={17} height={17} />
+              </Text>
+            </View>
+            <View style={styles.top10}>
+              <Text style={styles.placeHolder}>{t('flatAdress')}</Text>
+              <Text style={styles.infoItemText}>
+                {addressBuild}/{addressFlat}
+              </Text>
+            </View>
+            <View />
           </View>
         </View>
         <View style={styles.sendError}>
           <Icon name="alert" width={20} height={20} />
-          <Text style={styles.sendErrorText}>{t('sendError')}</Text>
+          <View style={styles.borderSendError}>
+            <Text style={styles.sendErrorText}>{t('sendError')}</Text>
+          </View>
         </View>
         <Button
           style={styles.changeBtn}
           iconWidth={25}
           onPress={() => {}}
+          fontFamily="Rubik-Regular"
           iconLeft="changePassword"
           title="changePassword"
         />
@@ -132,29 +151,69 @@ export function UserCard() {
           <Text style={styles.placeHolder}>{t('balance')}</Text>
           <Text style={styles.balance}>
             {convertToCurrency(deposit)}
-            <Text style={styles.little}> сум</Text>
+            <Text style={styles.little}> {t('sum')}</Text>
           </Text>
         </View>
         <View style={styles.smallCard2}>
           <View>
             <Text style={styles.placeHolder}>{t('bonus')}:</Text>
-            <Text style={styles.more}>{t('more')}:</Text>
+            <View style={styles.border}>
+              <Text style={styles.more}>{t('more')}:</Text>
+            </View>
           </View>
           <AnimatedCircularProgress
             size={45}
             width={5}
-            key={fill}
-            backgroundWidth={1}
-            fill={fill}
+            key={reduction}
+            backgroundWidth={2}
+            fill={reduction}
             tintColor="#E5474C"
             tintColorSecondary="#E5474C"
             backgroundColor="#BFBFBF"
             arcSweepAngle={240}
             rotation={240}
             lineCap="round">
-            {() => <Text style={styles.bunus}>{fill}%</Text>}
+            {a => <Text style={styles.bunus}>{a.toFixed(0)}%</Text>}
           </AnimatedCircularProgress>
         </View>
+      </View>
+      <View style={styles.card}>
+        <View>
+          <Text style={styles.placeHolder}>{t('nextPay')}</Text>
+          <Text style={styles.redPrice}>
+            {convertToCurrency(getNextPay(monthFee, reduction, deposit))}{' '}
+            {t('sum')}
+          </Text>
+        </View>
+        <View style={styles.nextPayInfo}>
+          <View>
+            <Text style={styles.placeHolder}>{t('nextPayDate')}</Text>
+            <Text style={styles.infoItemText}>
+              {convertToFullDate(internetActivate)}
+            </Text>
+          </View>
+          <View>
+            <Text style={styles.placeHolder}>{t('credit')}</Text>
+            <Text style={styles.infoItemText}>{credit}</Text>
+          </View>
+        </View>
+        <Button
+          style={styles.mainlyBtn}
+          title="payBalance"
+          fontFamily="Rubik-Regular"
+          onPress={() => {}}
+        />
+        <Button
+          style={styles.secondlyBtn}
+          textColor={getColor(Color.textBase)}
+          fontFamily="Rubik-Regular"
+          title="getCredit"
+          onPress={() => {}}
+        />
+      </View>
+      <Text style={styles.title}>{t('yourTariff')}</Text>
+      <View style={styles.card}>
+        <Text style={styles.tariffName}>{tpName}</Text>
       </View>
     </View>
   );

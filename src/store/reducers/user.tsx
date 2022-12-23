@@ -44,6 +44,7 @@ export type InitialUserStateProps = {
   disable: number;
   deposit: number;
   reduction: number;
+  credit: number;
 };
 
 // const axiosIn = axios.create({
@@ -74,6 +75,7 @@ const InitialState: InitialUserStateProps = {
   disable: 0,
   deposit: 0,
   reduction: 0,
+  credit: 0,
 };
 
 export function user(state = InitialState, action: any) {
@@ -100,13 +102,13 @@ export function user(state = InitialState, action: any) {
       data.city = action.payload.city;
       data.addressStreet = action.payload.addressStreet;
       data.reduction = action.payload.reduction;
+      data.credit = action.payload.credit;
       data.deposit = Math.trunc(action.payload.deposit);
       data.cellPhone = action.payload.cellPhone[0]
         ? action.payload.cellPhone[0]
         : '';
       break;
     case SET_USER_CONTACTS:
-      // console.log(action.payload, 123);
       // data.fio = action.payload.fio;
       // data.contractId = action.payload.contractId;
       // data.addressFlat = action.payload.addressFlat;

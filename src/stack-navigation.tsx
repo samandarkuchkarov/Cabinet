@@ -21,13 +21,6 @@ const basicScreenOptions = {
   gestureEnabled: false,
 };
 
-const axiosIn = axios.create({
-  baseURL: BASE_URI,
-  headers: {
-    'Content-Type': 'text/plain',
-  },
-});
-
 const HeaderScreenOption = {
   headerStyle: {
     backgroundColor: getColor(Color.bg1),
@@ -41,10 +34,9 @@ const HeaderScreenOption = {
 
 export const StackScreens = () => {
   const dispatch = useTypedDispatch();
-  const [isLogin, keys, host] = useTypedSelector(state => [
+  const [isLogin, keys] = useTypedSelector(state => [
     state.user.isLogin,
     state.user.key,
-    state.user.host,
   ]);
 
   useEffect(() => {
@@ -52,38 +44,44 @@ export const StackScreens = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isLogin) {
-      navigator.navigate('homeNavigation');
-      if (!host) {
-        axiosIn.interceptors.response.use(
-          response => {
-            if (response.data?.errstr === 'No such route') {
-              response.status = 401;
-              response.statusText = 'Unathorized';
-              response.data = 'Unathorized';
-              dispatch(logOut());
-              return response;
-            }
+    const axiosIn = axios.create({
+      baseURL: BASE_URI,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+    });
+    if (isLogin && keys) {
+      navigator.navigate('homeNavigation', {screen: 'profile'});
+
+      axiosIn.interceptors.response.use(
+        response => {
+          if (response.data?.errstr === 'No such route') {
+            response.status = 401;
+            response.statusText = 'Unathorized';
+            response.data = 'Unathorized';
+            dispatch(logOut());
             return response;
-          },
-          error => {
-            if (error.toString().includes('401')) {
-              dispatch(logOut());
-            }
-            return Promise.reject(error);
-          },
-        );
-        const authInterceptor = (config: AxiosRequestConfig) => {
-          config.headers!.USERSID = keys.sid;
-          return {...config};
-        };
-        axiosIn.interceptors.request.use(authInterceptor);
-        dispatch({type: UPDATE_HOST, payload: axiosIn});
-      }
+          }
+          return response;
+        },
+        error => {
+          if (error.toString().includes('401')) {
+            dispatch(logOut());
+          }
+          return Promise.reject(error);
+        },
+      );
+      const authInterceptor = (config: AxiosRequestConfig) => {
+        config.headers!.USERSID = keys.sid;
+        return {...config};
+      };
+      axiosIn.interceptors.request.use(authInterceptor);
+      dispatch({type: UPDATE_HOST, payload: axiosIn});
     } else {
+      dispatch({type: UPDATE_HOST, payload: axiosIn});
       navigator.navigate('authentication');
     }
-  }, [isLogin, host, keys, dispatch]);
+  }, [keys, dispatch]);
   return (
     <NavigationContainer ref={navigator}>
       <Stack.Navigator>

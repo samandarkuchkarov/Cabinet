@@ -5,6 +5,7 @@ import {ViewStyle} from 'react-native';
 import {Color, getColor} from '@app/colors';
 import {
   Alert,
+  ArrowRight,
   Bonus,
   ChangePassword,
   Edit,
@@ -44,6 +45,8 @@ export const Icon = (props: IconType) => {
       return <Alert {...props} fill={fill} />;
     case 'changePassword':
       return <ChangePassword {...props} fill={fill} />;
+    case 'arrowRight':
+      return <ArrowRight {...props} fill={fill} />;
   }
   return null;
 };

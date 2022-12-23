@@ -21,6 +21,20 @@
         "SMD": "SMD",
         "balance":"Balans:",
         "bonus":"Chegirma",
-        "more":"Batafsil"
+        "more":"Batafsil",
+        "nextPay":"Keyingi to'lov muddati uchun yetishmayotgan summa:",
+        "sum":"so'm",
+        "nextPayDate":"Keyingi hisobdan chiqarish sanasi:",
+        "credit":"Kredit:",
+        "payBalance":"Hisobni to'ldirish",
+        "getCredit":"Kredit o'rnatish",
+        "logout":"Chiqish",
+        "yourTariff":"Sizning tarifingiz",
+        "tariffPlan":"Tarif rejasi",
+        "detail":"Tafsilotlar",
+        "services":"Ogohlantirishlar",
+        "suspensions":"Xizmatlarni to'xtatib turish",
+        "chat":"Yordam chat",
+        "cancelComnet":"Shartnomani bekor qilish"
     }
 }

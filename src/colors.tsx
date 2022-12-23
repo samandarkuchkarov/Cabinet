@@ -7,6 +7,7 @@ import {
   DARK_LINE,
   DARK_PLACEHOLDER,
   DARK_SCREEN_BG,
+  DARK_TARIFF_COLOR,
   DARK_TEXT_BASE_1,
   DARK_TEXT_BASE_2,
   DARK_TEXT_ERROR,
@@ -18,6 +19,7 @@ import {
   LIGHT_LINE,
   LIGHT_PLACEHOLDER,
   LIGHT_SCREEN_BG,
+  LIGHT_TARIFF_COLOR,
   LIGHT_TEXT_BASE_1,
   LIGHT_TEXT_BASE_2,
   LIGHT_TEXT_ERROR,
@@ -39,6 +41,7 @@ export enum Color {
   line = 'line',
   screenBg = 'screenBg',
   placeHolder = 'placeHolder',
+  tariffColor = 'tariffColor',
 }
 
 const styled = new Set(Object.keys(Color));
@@ -69,6 +72,7 @@ const light = {
   [Color.textError]: LIGHT_TEXT_ERROR,
   [Color.line]: LIGHT_LINE,
   [Color.placeHolder]: LIGHT_PLACEHOLDER,
+  [Color.tariffColor]: LIGHT_TARIFF_COLOR,
 };
 
 const dark = {
@@ -85,4 +89,5 @@ const dark = {
   [Color.textError]: DARK_TEXT_ERROR,
   [Color.line]: DARK_LINE,
   [Color.placeHolder]: DARK_PLACEHOLDER,
+  [Color.tariffColor]: DARK_TARIFF_COLOR,
 };
