@@ -4,6 +4,7 @@ import {IconsType} from '@app/types';
 
 import AlertIcon from '../assets/svg/alert.svg';
 import ArrowRightIcon from '../assets/svg/arrow-right.svg';
+import BePlusIcon from '../assets/svg/be-pluse.svg';
 import BonusIcon from '../assets/svg/bonus-tab.svg';
 import ChangePasswordIcon from '../assets/svg/changePassword.svg';
 import EditIcon from '../assets/svg/edit.svg';
@@ -12,6 +13,7 @@ import LangUzbIcon from '../assets/svg/langUz.svg';
 import LogoIcon from '../assets/svg/Logo.svg';
 import ProfileIcon from '../assets/svg/profile-tab.svg';
 import SettingsIcon from '../assets/svg/settings-tab.svg';
+import SkidkaPartnerIcon from '../assets/svg/skidka_partner.svg';
 import StaticIcon from '../assets/svg/static-tab.svg';
 import UserIcon from '../assets/svg/user.svg';
 import WalletIcon from '../assets/svg/wallet-tab.svg';
@@ -29,6 +31,8 @@ export {
   AlertIcon as Alert,
   ChangePasswordIcon as ChangePassword,
   ArrowRightIcon as ArrowRight,
+  BePlusIcon as BePlus,
+  SkidkaPartnerIcon as SkidkaPartner,
 };
 export const LIGHT_BG1 = '#FFFF';
 export const DARK_BG1 = '#000';

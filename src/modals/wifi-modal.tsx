@@ -18,9 +18,11 @@ export function WifiModal({
   modalVisible,
   setModalVisible,
   activeTab,
+  setActiveTab,
 }: {
   modalVisible: boolean;
   setModalVisible: Dispatch<SetStateAction<boolean>>;
+  setActiveTab: Dispatch<SetStateAction<string>>;
   activeTab: string;
 }) {
   const reactTag = useRef<number | null>(null);
@@ -33,6 +35,7 @@ export function WifiModal({
   return (
     <BottomModalWrapper
       setModalVisible={setModalVisible}
+      setActiveTab={setActiveTab}
       activeTab={activeTab}
       modalVisible={modalVisible}>
       <TouchableWithoutFeedback onPress={close}>

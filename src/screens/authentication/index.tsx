@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 
 import {useTranslation} from 'react-i18next';
-import {Text, View} from 'react-native';
+import {ImageBackground, Text} from 'react-native';
 
 import {Button} from '@app/components/ui/button';
 import {KeyboardSafeArea} from '@app/components/ui/keyboard-safe-area';
@@ -31,7 +31,9 @@ export const Authentication = () => {
   }, [password, login, dispatch]);
 
   return (
-    <View style={styles.mainWrapper}>
+    <ImageBackground
+      source={require('../../../assets/images/login.png')}
+      style={styles.mainWrapper}>
       <KeyboardSafeArea style={styles.wrapper}>
         <Text style={styles.title}>{t('signIn')}</Text>
         <TextField
@@ -55,10 +57,11 @@ export const Authentication = () => {
         <Button
           loading={loading}
           style={styles.button}
+          paddingHorizontal={16}
           title="signIn"
           onPress={onSubmit}
         />
       </KeyboardSafeArea>
-    </View>
+    </ImageBackground>
   );
 };

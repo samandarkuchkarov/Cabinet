@@ -15,12 +15,14 @@ export function BottomModalWrapper({
   children,
   modalVisible,
   setModalVisible,
-  activeTab,
+  // activeTab,
+  setActiveTab,
 }: {
   children: JSX.Element;
   modalVisible: boolean;
   setModalVisible: Dispatch<SetStateAction<boolean>>;
   activeTab: string;
+  setActiveTab: Dispatch<SetStateAction<string>>;
 }) {
   const [visible, setVisible] = useState(true);
   const height = useWindowDimensions().height;
@@ -30,26 +32,21 @@ export function BottomModalWrapper({
     setVisible(modalVisible);
   }, [modalVisible]);
 
-  const closeModal = (name: string) => {
-    if (name !== activeTab) {
-      setModalVisible(false);
-      setVisible(false);
-    }
-  };
-
   return (
     <Modal
       animationType="fade"
       visible={visible}
       transparent={true}
-      onRequestClose={() => setVisible(false)}>
-      <View
-        style={[styles.modalWrapper, {height: height - (IS_IOS ? 80 : 60)}]}>
+      onRequestClose={() => {
+        setVisible(false);
+        setModalVisible(false);
+      }}>
+      <View style={[styles.modalWrapper, {height: height - 80}]}>
         {children}
       </View>
       <View style={styles.tabInvisibleBtns}>
         {['bonus', 'static', 'profile', 'wallet', 'settings'].map(i => (
-          <TouchableWithoutFeedback onPress={() => closeModal(i)} key={i}>
+          <TouchableWithoutFeedback onPress={() => setActiveTab(i)} key={i}>
             <View style={styles.btns} />
           </TouchableWithoutFeedback>
         ))}

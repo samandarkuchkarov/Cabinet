@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {BottomTabNavigationEventMap} from '@react-navigation/bottom-tabs';
 import {
@@ -21,7 +21,7 @@ export type TabbarProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
   state: TabNavigationState<ParamListBase>;
 };
-export function TabBar() {
+export function TabBar(props: TabbarProps) {
   // const {index, routeNames} = props.state;
   const navigation = useTypedNavigation();
   const [modalVisible, setModalVisible] = useState(true);
@@ -45,6 +45,15 @@ export function TabBar() {
     }
   };
 
+  useEffect(() => {
+    if (!modalVisible) {
+      const {state} = props;
+      if (state.index === 0) {
+        setActiveTab('profile');
+      }
+    }
+  }, [modalVisible]);
+
   return (
     <>
       <View style={styles.tabBarStyle}>
@@ -61,6 +70,7 @@ export function TabBar() {
           setModalVisible={setModalVisible}
           modalVisible={modalVisible}
           activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
       )}
       {activeTab === 'wallet' && (
@@ -68,6 +78,7 @@ export function TabBar() {
           setModalVisible={setModalVisible}
           modalVisible={modalVisible}
           activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
       )}
       {activeTab === 'settings' && (
@@ -75,6 +86,7 @@ export function TabBar() {
           setModalVisible={setModalVisible}
           modalVisible={modalVisible}
           activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
       )}
     </>

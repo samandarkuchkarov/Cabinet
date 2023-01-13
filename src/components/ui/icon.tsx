@@ -6,11 +6,13 @@ import {Color, getColor} from '@app/colors';
 import {
   Alert,
   ArrowRight,
+  BePlus,
   Bonus,
   ChangePassword,
   Edit,
   Profile,
   Settings,
+  SkidkaPartner,
   Static,
   User,
   Wallet,
@@ -22,6 +24,7 @@ export type IconType = {
   height: number;
   color?: Color;
   style?: ViewStyle;
+  onPress?: () => void;
 };
 export const Icon = (props: IconType) => {
   const fill = props.color && getColor(props.color);
@@ -47,6 +50,10 @@ export const Icon = (props: IconType) => {
       return <ChangePassword {...props} fill={fill} />;
     case 'arrowRight':
       return <ArrowRight {...props} fill={fill} />;
+    case 'bePlus':
+      return <BePlus {...props} fill={fill} />;
+    case 'skidkaParner':
+      return <SkidkaPartner {...props} fill={fill} />;
   }
   return null;
 };

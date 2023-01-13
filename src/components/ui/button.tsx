@@ -35,6 +35,7 @@ export type ButtonProps = Omit<ViewProps, 'children'> & {
   style: ViewStyle;
   iconWidth?: number;
   fontFamily?: string;
+  paddingHorizontal?: number;
 } & ButtonValue &
   ButtonRightIconType &
   ButtonLeftIconType;
@@ -66,6 +67,7 @@ export const Button = ({
   style,
   textColor,
   fontFamily,
+  paddingHorizontal,
   ...props
 }: ButtonProps) => {
   const {t} = useTranslation();
@@ -77,7 +79,7 @@ export const Button = ({
   }, [disabled, loading, onPress]);
 
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, {paddingHorizontal}]}>
       <TouchableOpacity
         onPress={onPressButton}
         style={[styles.container, style]}
@@ -132,7 +134,7 @@ const styles = createTheme({
   },
   wrapper: {
     width: '100%',
-    paddingHorizontal: 16,
+    // paddingHorizontal: 16,
   },
   text: {
     color: Color.textBaseButton,

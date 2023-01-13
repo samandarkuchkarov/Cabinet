@@ -31,6 +31,7 @@ type Props = React.ComponentProps<typeof TextInput> & {
   multiline?: boolean;
   twoIcons?: boolean;
   size?: 'small' | 'large';
+  defaultValue?: string;
 };
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
@@ -52,6 +53,7 @@ export const TextField: React.FC<Props> = memo(
     rightAction,
     multiline,
     twoIcons,
+    defaultValue,
     ...restOfProps
   }) => {
     const isLarge = size === 'large';
@@ -138,6 +140,7 @@ export const TextField: React.FC<Props> = memo(
           <AnimatedTextInput
             selectionColor={getColor(Color.textBase)}
             allowFontScaling={false}
+            defaultValue={defaultValue ? defaultValue : ''}
             style={[
               styles.input,
               {

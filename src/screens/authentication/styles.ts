@@ -3,8 +3,7 @@ import {createTheme} from '@app/helpers';
 
 export const styles = createTheme({
   mainWrapper: {
-    width: '100%',
-    backgroundColor: Color.bg1,
+    resizeMode: 'stretch',
     flex: 1,
     alignItems: 'center',
   },
@@ -13,7 +12,6 @@ export const styles = createTheme({
     paddingHorizontal: 20,
     paddingVertical: 20,
     flex: 1,
-    backgroundColor: Color.bg1,
     alignItems: 'center',
   },
   textArea: {
@@ -32,5 +30,10 @@ export const styles = createTheme({
   },
   error: {
     color: Color.textError,
+  },
+
+  imageWrapper: {
+    flex: 1,
+    alignItems: 'center',
   },
 });
