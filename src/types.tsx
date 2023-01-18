@@ -21,6 +21,7 @@ export type TabParamList = {
 export type RootStackParamList = {
   homeNavigation: NavigatorScreenParams<TabParamList>;
   authentication: undefined;
+  passwordChange: undefined;
 };
 
 export type IconsType = {

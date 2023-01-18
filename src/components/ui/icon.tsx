@@ -10,6 +10,7 @@ import {
   Bonus,
   ChangePassword,
   Edit,
+  Filter,
   Profile,
   Settings,
   SkidkaPartner,
@@ -54,6 +55,8 @@ export const Icon = (props: IconType) => {
       return <BePlus {...props} fill={fill} />;
     case 'skidkaParner':
       return <SkidkaPartner {...props} fill={fill} />;
+    case 'filter':
+      return <Filter {...props} fill={fill} />;
   }
   return null;
 };

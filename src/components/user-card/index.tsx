@@ -16,7 +16,7 @@ import {
   getNextPay,
   getUserStatus,
 } from '@app/helpers';
-import {useTypedSelector} from '@app/hooks';
+import {useTypedNavigation, useTypedSelector} from '@app/hooks';
 import {PhoneEditModal} from '@app/modals/phone-edit-modal';
 
 import {styles} from './style';
@@ -62,6 +62,8 @@ export function UserCard() {
   const status = getUserStatus(disable, internetStatus);
 
   const [phoneModal, setPhoneModal] = useState(false);
+
+  const navigation = useTypedNavigation();
 
   return (
     <>
@@ -127,7 +129,9 @@ export function UserCard() {
           <Button
             style={styles.changeBtn}
             iconWidth={25}
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('passwordChange');
+            }}
             fontFamily="Rubik-Regular"
             iconLeft="changePassword"
             title="changePassword"

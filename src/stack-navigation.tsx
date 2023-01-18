@@ -10,6 +10,7 @@ import {useTypedDispatch, useTypedSelector} from '@app/hooks';
 import {navigator} from '@app/navigator';
 import {Authentication} from '@app/screens/authentication';
 import {HomeNavigation} from '@app/screens/home-navigation';
+import {PasswordChange} from '@app/screens/password-change';
 import {UPDATE_HOST, checkUser, logOut} from '@app/store/actions';
 
 import '../assets/118n/i18n';
@@ -30,6 +31,7 @@ const HeaderScreenOption = {
   },
   tabBarShowLabel: false,
   headerTitle: () => <Header />,
+  headerLeft: () => null,
 };
 
 export const StackScreens = () => {
@@ -94,6 +96,11 @@ export const StackScreens = () => {
           options={basicScreenOptions}
           name="homeNavigation"
           component={HomeNavigation}
+        />
+        <Stack.Screen
+          options={HeaderScreenOption}
+          name="passwordChange"
+          component={PasswordChange}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -2,7 +2,11 @@ import {AxiosInstance} from 'axios';
 
 import {
   LOG_OUT,
+  SET_ALL_BONUSES,
+  SET_ALL_TARRIFS,
   SET_CURRENT_TARIFF,
+  SET_FEES,
+  SET_PAYMENTS,
   SET_USER_CONTACTS,
   SET_USER_DATA,
   SET_USER_KEYS,
@@ -22,7 +26,42 @@ type contactsItem = {
   typeId: number;
   value: string;
 };
+export type feeProps = {
+  datetime: string;
+  dsc: string;
+  id: number;
+  sum: number;
+  uid: number;
+  extId: string | undefined;
+  innerDescribe: string | undefined;
+};
+// type paymentsProps = {
+//   datetime: string;
+//   dsc: string;
+//   id: number;
+//   sum: number;
+//   uid: number;
+//   extId: string;
+// };
 
+export type bonusesProps = {
+  gorod: string;
+  pic: string;
+  name: string;
+  description_ru: string;
+  description_uz: string;
+  type: string;
+  title_ru: string;
+  title_uz: string;
+  short_text_ru: string;
+  short_text_uz: string;
+  id: number;
+};
+export type allTariffsProps = {
+  comments: string;
+  id: number;
+  tpId: number;
+};
 export type InitialUserStateProps = {
   isLogin: boolean | null;
   key: keysProps;
@@ -45,6 +84,10 @@ export type InitialUserStateProps = {
   deposit: number;
   reduction: number;
   credit: number;
+  bonuses: bonusesProps[] | [];
+  fees: feeProps[] | [];
+  payments: feeProps[] | [];
+  allTariffs: allTariffsProps[] | [];
 };
 
 // const axiosIn = axios.create({
@@ -76,6 +119,10 @@ const InitialState: InitialUserStateProps = {
   deposit: 0,
   reduction: 0,
   credit: 0,
+  bonuses: [],
+  fees: [],
+  payments: [],
+  allTariffs: [],
 };
 
 export function user(state = InitialState, action: any) {
@@ -125,7 +172,18 @@ export function user(state = InitialState, action: any) {
       data.internetStatus = action.payload.internetStatus;
       data.internetActivate = action.payload.internetActivate;
       break;
-
+    case SET_ALL_BONUSES:
+      data.bonuses = action.payload;
+      break;
+    case SET_ALL_TARRIFS:
+      data.allTariffs = action.payload;
+      break;
+    case SET_FEES:
+      data.fees = action.payload;
+      break;
+    case SET_PAYMENTS:
+      data.payments = action.payload;
+      break;
     default:
       break;
   }

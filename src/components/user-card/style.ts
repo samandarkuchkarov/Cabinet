@@ -214,7 +214,7 @@ export const styles = createTheme({
     marginTop: 5,
   },
   tariffName: {
-    color: Color.tariffColor,
+    color: Color.textBase,
     fontFamily: 'Rubik-Bold',
     textAlign: 'center',
     fontSize: 24,

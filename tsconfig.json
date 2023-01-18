@@ -5,6 +5,7 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
+    "lib": ["ES2021.String","ES2015","ES2016"],
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */,
     "strictPropertyInitialization": false,
     "baseUrl": ".",

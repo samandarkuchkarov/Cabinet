@@ -39,6 +39,27 @@
         "bePlus":"Plusda bo'l",
         "bePlusDesc":"Hisobingizni o'z vaqtida to'ldiring va 15% gacha chegirmaga ega bo'ling",
         "skidkaPartner":"Hamkorlardan chegirmalar",
-        "skidkaPartnerDesc":"Do'stlarimiz va hamkorlarimizdan eksklyuziv chegirmalar! Comnet obunachisi bo'lish foydali!"
+        "skidkaPartnerDesc":"Do'stlarimiz va hamkorlarimizdan eksklyuziv chegirmalar! Comnet obunachisi bo'lish foydali!",
+        "newPassword":"Yangi parol",
+        "submitPassword":"Parolni tasdiqlang",
+        "save":"Saqlash",
+        "balanceShot":"Hisob balansi",
+        "write-off":"Hisobdan chiqarish",
+        "desc":"Tavsif:",
+        "filter":"Filtr",
+        "jan":"Yanv",
+        "feb":"Fev",
+        "march":"Mar",
+        "april":"Apr",
+        "may":"May",
+        "june":"Iyun",
+        "july":"Iyul",
+        "aug":"Avg",
+        "sept":"Sen",
+        "oct":"Okt",
+        "nov":"Noy",
+        "dec":"Dek",
+        "reset":"Qayta o'rnatish",
+        "show":"Ko'rsatish"
     }
 }

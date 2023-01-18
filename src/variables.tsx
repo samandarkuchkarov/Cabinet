@@ -8,6 +8,7 @@ import BePlusIcon from '../assets/svg/be-pluse.svg';
 import BonusIcon from '../assets/svg/bonus-tab.svg';
 import ChangePasswordIcon from '../assets/svg/changePassword.svg';
 import EditIcon from '../assets/svg/edit.svg';
+import FilterIcon from '../assets/svg/filter.svg';
 import LangRuIcon from '../assets/svg/lang.svg';
 import LangUzbIcon from '../assets/svg/langUz.svg';
 import LogoIcon from '../assets/svg/Logo.svg';
@@ -33,6 +34,7 @@ export {
   ArrowRightIcon as ArrowRight,
   BePlusIcon as BePlus,
   SkidkaPartnerIcon as SkidkaPartner,
+  FilterIcon as Filter,
 };
 export const LIGHT_BG1 = '#FFFF';
 export const DARK_BG1 = '#000';

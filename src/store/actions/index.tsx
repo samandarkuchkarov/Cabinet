@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {Dispatch} from 'redux';
 
 import {getData, storeData} from '@app/helpers';
@@ -11,8 +12,12 @@ export const SET_USER_KEYS = 'SET_USER_KEYS';
 export const SET_USER_DATA = 'SET_USER_DATA';
 export const SET_USER_CONTACTS = 'SET_USER_CONTACTS';
 export const SET_CURRENT_TARIFF = 'SET_CURRENT_TARIFF';
+export const SET_ALL_BONUSES = 'SET_ALL_BONUSES';
+export const SET_ALL_TARRIFS = 'SET_ALL_TARRIFS';
 export const LOG_OUT = 'LOG_OUT';
 export const UPDATE_HOST = 'UPDATE_HOST';
+export const SET_FEES = 'SET_FEES';
+export const SET_PAYMENTS = 'SET_PAYMENTS';
 
 export type setUserStatusProps = {
   isLogin: boolean;
@@ -133,15 +138,90 @@ export function setAllTariff() {
   ) => {
     const user = getState().user;
     if (typeof user.host !== 'boolean') {
-      // const mainData = await user.host.get(
-      //   '/api.cgi/user/' + user.key.uid + '/internet/tariffs/all',
-      // );
-      // if (mainData && mainData.data) {
-      // dispatch({
-      //   type: SET_CURRENT_TARIFF,
-      //   payload: mainData.data[0],
-      // });
-      // }
+      const mainData = await user.host.get(
+        '/api.cgi/user/' + user.key.uid + '/internet/tariffs/all',
+      );
+      if (mainData && mainData.data) {
+        dispatch({
+          type: SET_ALL_TARRIFS,
+          payload: mainData.data,
+        });
+      }
+    }
+  };
+}
+
+const getNews = () => {
+  return axios({
+    method: 'GET',
+    url: 'https://serv.comnet.uz/api/news',
+    headers: {
+      Authorization: 'Bearer 3|YOz6gV9lvSlVao1VfTzboRMDSpipDNuSMeSLaNFo',
+    },
+  })
+    .then(e => {
+      return e.data.data;
+    })
+    .catch(e => {
+      console.warn(e);
+    });
+};
+
+export function setAllBonuses() {
+  return async (dispatch: Dispatch) => {
+    const data = await getNews();
+    if (data) {
+      dispatch({
+        type: SET_ALL_BONUSES,
+        payload: data,
+      });
+    }
+  };
+}
+
+export function setFees(FROM_DATE = null, TO_DATE = null) {
+  return async (
+    dispatch: Dispatch,
+    getState: () => {user: InitialUserStateProps},
+  ) => {
+    const user = getState().user;
+    if (typeof user.host !== 'boolean') {
+      const mainData = await user.host.get(
+        '/api.cgi/user/' + user.key.uid + '/fees',
+        {
+          params: {FROM_DATE, TO_DATE},
+        },
+      );
+      if (mainData && mainData.data) {
+        // console.log(mainData.data.map(i => i.innerDescribe));
+        dispatch({
+          type: SET_FEES,
+          payload: mainData.data,
+        });
+      }
+    }
+  };
+}
+
+export function setPayments(FROM_DATE = null, TO_DATE = null) {
+  return async (
+    dispatch: Dispatch,
+    getState: () => {user: InitialUserStateProps},
+  ) => {
+    const user = getState().user;
+    if (typeof user.host !== 'boolean') {
+      const mainData = await user.host.get(
+        '/api.cgi/user/' + user.key.uid + '/payments',
+        {
+          params: {FROM_DATE, TO_DATE, METHOD: '_SHOW'},
+        },
+      );
+      if (mainData && mainData.data && mainData.data[0]) {
+        dispatch({
+          type: SET_PAYMENTS,
+          payload: mainData.data,
+        });
+      }
     }
   };
 }

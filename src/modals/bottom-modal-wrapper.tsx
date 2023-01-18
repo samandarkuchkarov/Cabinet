@@ -9,13 +9,13 @@ import {
 
 import {createTheme} from '@app/helpers';
 // import {useTypedRoute} from '@app/hooks/use-typed-route';
+import {useTypedNavigation} from '@app/hooks';
 import {IS_IOS} from '@app/variables';
 
 export function BottomModalWrapper({
   children,
   modalVisible,
   setModalVisible,
-  // activeTab,
   setActiveTab,
 }: {
   children: JSX.Element;
@@ -31,7 +31,7 @@ export function BottomModalWrapper({
   useEffect(() => {
     setVisible(modalVisible);
   }, [modalVisible]);
-
+  const navigation = useTypedNavigation();
   return (
     <Modal
       animationType="fade"
@@ -46,7 +46,17 @@ export function BottomModalWrapper({
       </View>
       <View style={styles.tabInvisibleBtns}>
         {['bonus', 'static', 'profile', 'wallet', 'settings'].map(i => (
-          <TouchableWithoutFeedback onPress={() => setActiveTab(i)} key={i}>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              setActiveTab(i);
+              if (i === 'profile') {
+                navigation.navigate('homeNavigation', {screen: 'profile'});
+              }
+              if (i === 'wallet') {
+                navigation.navigate('homeNavigation', {screen: 'wallet'});
+              }
+            }}
+            key={i}>
             <View style={styles.btns} />
           </TouchableWithoutFeedback>
         ))}

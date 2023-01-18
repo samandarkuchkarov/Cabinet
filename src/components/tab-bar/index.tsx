@@ -30,6 +30,7 @@ export function TabBar(props: TabbarProps) {
   // const focusedRoute = routeNames[index];
 
   const pressTab = (item: string) => {
+    console.log(item);
     if (item === 'profile') {
       navigation.navigate('homeNavigation', {screen: item});
       setActiveTab(item);
@@ -37,9 +38,12 @@ export function TabBar(props: TabbarProps) {
       setModalVisible(true);
       setActiveTab(item);
     } else if (item === 'wallet') {
+      setActiveTab(item);
+      navigation.navigate('homeNavigation', {screen: 'wallet'});
+    } else if (item === 'settings') {
       setModalVisible(true);
       setActiveTab(item);
-    } else if (item === 'settings') {
+    } else if (item === 'bonus') {
       setModalVisible(true);
       setActiveTab(item);
     }
@@ -73,7 +77,7 @@ export function TabBar(props: TabbarProps) {
           setActiveTab={setActiveTab}
         />
       )}
-      {activeTab === 'wallet' && (
+      {activeTab === 'bonus' && (
         <WalletModal
           setModalVisible={setModalVisible}
           modalVisible={modalVisible}
