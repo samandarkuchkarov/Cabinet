@@ -60,6 +60,11 @@
         "nov":"Noy",
         "dec":"Dek",
         "reset":"Qayta o'rnatish",
-        "show":"Ko'rsatish"
+        "show":"Ko'rsatish",
+        "mb/s":"Mbit/s",
+        "traffic":"Trafik",
+        "subscriptionFee":"Abonent to‘lovi:",
+        "subscriptionEndTime":"Abonent to'lovining tugash sanasi",
+        "statistics":"Statistika"
     }
 }

@@ -9,6 +9,7 @@ import {RouteProp} from '@react-navigation/core/lib/typescript/src/types';
 import {Color, getColor} from '@app/colors';
 import {Header} from '@app/components/header';
 import {TabBar, TabbarProps} from '@app/components/tab-bar';
+import {Detail} from '@app/screens/details';
 import {Home} from '@app/screens/home';
 import {Profile} from '@app/screens/profile';
 import {Settings} from '@app/screens/settings';
@@ -43,6 +44,7 @@ export function HomeNavigation() {
       <Tab.Screen name="static" component={Statistics} />
       <Tab.Screen name="wallet" component={Wallet} />
       <Tab.Screen name="settings" component={Settings} />
+      <Tab.Screen name="detail" component={Detail} />
     </Tab.Navigator>
   );
 }

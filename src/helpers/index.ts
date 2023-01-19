@@ -1,5 +1,6 @@
 export * from './create-theme';
 export * from './storage';
+export * from './parse-tariff';
 
 export const getUserStatus = (internetStatus: any, status: any) => {
   const res = +status;

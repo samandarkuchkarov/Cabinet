@@ -219,4 +219,52 @@ export const styles = createTheme({
     textAlign: 'center',
     fontSize: 24,
   },
+  mainSpeed: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  mainSpeedText: {
+    fontFamily: 'Rubik-Regular',
+    color: Color.textBase,
+    fontSize: 80,
+  },
+  speed: {
+    fontSize: 20,
+    fontFamily: 'Rubik-Regular',
+  },
+  mainSpeedDesc: {
+    marginTop: -25,
+    fontFamily: 'Rubik-Regular',
+    color: '#757575',
+    marginBottom: 20,
+  },
+  listSpeed: {
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    width: '100%',
+    flexDirection: 'row',
+  },
+  itemSpeed: {
+    width: '45%',
+    marginTop: 5,
+  },
+  itemSpeedBig: {
+    marginTop: 5,
+    width: '100%',
+  },
+  itemSpeedPlaceholder: {
+    color: '#757575',
+    fontFamily: 'Rubik-Regular',
+    marginBottom: 5,
+  },
+  monthFee: {
+    color: '#F35459',
+    fontFamily: 'Rubik-Medium',
+    fontSize: 17,
+  },
+  itemSpeedText: {
+    fontSize: 17,
+    fontFamily: 'Rubik-Regular',
+  },
 });

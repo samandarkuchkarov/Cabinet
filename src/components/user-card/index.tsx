@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {useTranslation} from 'react-i18next';
 import {Text, TouchableWithoutFeedback, View} from 'react-native';
@@ -15,9 +15,12 @@ import {
   getLastDays,
   getNextPay,
   getUserStatus,
+  parseTariff,
+  parseTariffProps,
 } from '@app/helpers';
 import {useTypedNavigation, useTypedSelector} from '@app/hooks';
 import {PhoneEditModal} from '@app/modals/phone-edit-modal';
+// import {allTariffsProps} from '@app/store/reducers/user';
 
 import {styles} from './style';
 
@@ -40,6 +43,8 @@ export function UserCard() {
     monthFee,
     credit,
     tpName,
+    allTariffs,
+    tpId,
   ] = useTypedSelector(state => [
     state.user.fio,
     state.user.city,
@@ -57,6 +62,8 @@ export function UserCard() {
     state.user.monthFee,
     state.user.credit,
     state.user.tpName,
+    state.user.allTariffs,
+    state.user.tpId,
   ]);
 
   const status = getUserStatus(disable, internetStatus);
@@ -64,6 +71,19 @@ export function UserCard() {
   const [phoneModal, setPhoneModal] = useState(false);
 
   const navigation = useTypedNavigation();
+  const [currentTariff, setCurrentTariff] = useState<parseTariffProps>();
+
+  const speed = currentTariff?.mainSpeed;
+
+  useEffect(() => {
+    if (allTariffs.length && tpId) {
+      let tariff = allTariffs.filter(i => i.tpId === tpId)[0];
+      if (tariff) {
+        let tariffData: parseTariffProps = parseTariff(tariff.comments);
+        setCurrentTariff(tariffData);
+      }
+    }
+  }, [allTariffs, tpId]);
 
   return (
     <>
@@ -233,6 +253,74 @@ export function UserCard() {
         <Text style={styles.title}>{t('yourTariff')}</Text>
         <View style={styles.card}>
           <Text style={styles.tariffName}>{tpName}</Text>
+          {currentTariff && speed ? (
+            <View style={styles.mainSpeed}>
+              <AnimatedCircularProgress
+                size={200}
+                width={14}
+                key={speed}
+                backgroundWidth={10}
+                fill={speed}
+                tintColor="#B6DB26"
+                tintColorSecondary="#B6DB26"
+                backgroundColor="#BFBFBF"
+                arcSweepAngle={240}
+                rotation={240}
+                lineCap="round">
+                {a => (
+                  <>
+                    <Text style={styles.mainSpeedText}>{a.toFixed(0)}</Text>
+                    <Text style={styles.speed}>{t('mb/s')}</Text>
+                  </>
+                )}
+              </AnimatedCircularProgress>
+              <Text style={styles.mainSpeedDesc}>
+                {currentTariff.mainSpeedDesc}
+              </Text>
+              <View style={styles.listSpeed}>
+                <View style={styles.itemSpeed}>
+                  <Text style={styles.itemSpeedPlaceholder}>
+                    {currentTariff.secondSpeedDesc}:
+                  </Text>
+                  <Text style={styles.itemSpeedText}>
+                    {currentTariff.secondSpeed} {t('mb/s')}
+                  </Text>
+                </View>
+                <View style={styles.itemSpeed}>
+                  <Text style={styles.itemSpeedPlaceholder}>
+                    {currentTariff.tasixDesc}:
+                  </Text>
+                  <Text style={styles.itemSpeedText}>
+                    {currentTariff.tasixSpeed} {t('mb/s')}
+                  </Text>
+                </View>
+                <View style={styles.itemSpeed}>
+                  <Text style={styles.itemSpeedPlaceholder}>
+                    {t('traffic')}
+                  </Text>
+                  <Text style={styles.itemSpeedText}>Безлимитный</Text>
+                </View>
+                <View style={styles.itemSpeed}>
+                  <Text style={styles.itemSpeedPlaceholder}>
+                    {t('subscriptionFee')}
+                  </Text>
+                  <Text style={styles.monthFee}>
+                    {convertToCurrency(monthFee)} {t('sum')}
+                  </Text>
+                </View>
+                <View style={styles.itemSpeedBig}>
+                  <Text style={styles.itemSpeedPlaceholder}>
+                    {t('subscriptionEndTime')}
+                  </Text>
+                  <Text style={styles.itemSpeedText}>
+                    {convertToFullDate(internetActivate)}
+                  </Text>
+                </View>
+              </View>
+            </View>
+          ) : (
+            <></>
+          )}
         </View>
       </View>
       <PhoneEditModal

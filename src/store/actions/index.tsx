@@ -18,6 +18,7 @@ export const LOG_OUT = 'LOG_OUT';
 export const UPDATE_HOST = 'UPDATE_HOST';
 export const SET_FEES = 'SET_FEES';
 export const SET_PAYMENTS = 'SET_PAYMENTS';
+export const SET_SESSIONS = 'SET_SESSIONS';
 
 export type setUserStatusProps = {
   isLogin: boolean;
@@ -222,6 +223,52 @@ export function setPayments(FROM_DATE = null, TO_DATE = null) {
           payload: mainData.data,
         });
       }
+    }
+  };
+}
+export function setSession(FROM_DATE = null, TO_DATE = null, PAGE_ROWS = 100) {
+  return async (
+    dispatch: Dispatch,
+    getState: () => {user: InitialUserStateProps},
+  ) => {
+    const user = getState().user;
+    if (typeof user.host !== 'boolean') {
+      const mainData = await user.host.get(
+        '/api.cgi/user/' + user.key.uid + '/sessions',
+        {
+          params: {FROM_DATE, TO_DATE, PAGE_ROWS},
+        },
+      );
+      console.log(Object.keys(mainData.data[0]));
+      if (mainData && mainData.data && mainData.data[0]) {
+        dispatch({
+          type: SET_SESSIONS,
+          payload: mainData.data,
+        });
+      }
+    }
+  };
+}
+export function setSessionDetail() {
+  return async (
+    dispatch: Dispatch,
+    getState: () => {user: InitialUserStateProps},
+  ) => {
+    const user = getState().user;
+    if (typeof user.host !== 'boolean') {
+      // const mainData = await user.host.get(
+      //   '/api.cgi/user/' + user.key.uid + '/sessions/detail',
+      //   {
+      //     params: {PAGE_ROWS},
+      //   },
+      // );
+      // console.log(mainData.data);
+      // if (mainData && mainData.data && mainData.data[0]) {
+      //   dispatch({
+      //     type: SET_PAYMENTS,
+      //     payload: mainData.data,
+      //   });
+      // }
     }
   };
 }

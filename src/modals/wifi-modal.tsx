@@ -10,6 +10,7 @@ import {
 import {Color} from '@app/colors';
 import {TabButton} from '@app/components/ui/tab-button';
 import {createTheme} from '@app/helpers';
+import {useTypedNavigation} from '@app/hooks';
 import {IS_IOS} from '@app/variables';
 
 import {BottomModalWrapper} from './bottom-modal-wrapper';
@@ -32,6 +33,7 @@ export function WifiModal({
       setModalVisible(false);
     }
   };
+  const navigation = useTypedNavigation();
   return (
     <BottomModalWrapper
       setModalVisible={setModalVisible}
@@ -46,7 +48,13 @@ export function WifiModal({
             }}
             style={styles.whiteBlock}>
             <TabButton title="tariffPlan" onPress={() => {}} />
-            <TabButton title="detail" onPress={() => {}} />
+            <TabButton
+              title="detail"
+              onPress={() => {
+                navigation.navigate('homeNavigation', {screen: 'detail'});
+                setModalVisible(false);
+              }}
+            />
           </View>
         </View>
       </TouchableWithoutFeedback>

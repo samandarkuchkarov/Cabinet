@@ -16,6 +16,7 @@ export type TabParamList = {
   profile: undefined;
   wallet: undefined;
   settings: undefined;
+  detail: undefined;
 };
 
 export type RootStackParamList = {

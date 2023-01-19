@@ -7,6 +7,7 @@ import {
   SET_CURRENT_TARIFF,
   SET_FEES,
   SET_PAYMENTS,
+  SET_SESSIONS,
   SET_USER_CONTACTS,
   SET_USER_DATA,
   SET_USER_KEYS,
@@ -35,6 +36,19 @@ export type feeProps = {
   extId: string | undefined;
   innerDescribe: string | undefined;
 };
+
+export type sessionProps = {
+  tpName: string;
+  tpId: number;
+  duration: string;
+  durationSec: number;
+  recv: number;
+  sent: number;
+  start: string;
+  sum: number;
+  end: string;
+};
+
 // type paymentsProps = {
 //   datetime: string;
 //   dsc: string;
@@ -88,6 +102,7 @@ export type InitialUserStateProps = {
   fees: feeProps[] | [];
   payments: feeProps[] | [];
   allTariffs: allTariffsProps[] | [];
+  sessions: sessionProps[] | [];
 };
 
 // const axiosIn = axios.create({
@@ -123,6 +138,7 @@ const InitialState: InitialUserStateProps = {
   fees: [],
   payments: [],
   allTariffs: [],
+  sessions: [],
 };
 
 export function user(state = InitialState, action: any) {
@@ -183,6 +199,9 @@ export function user(state = InitialState, action: any) {
       break;
     case SET_PAYMENTS:
       data.payments = action.payload;
+      break;
+    case SET_SESSIONS:
+      data.sessions = action.payload;
       break;
     default:
       break;
