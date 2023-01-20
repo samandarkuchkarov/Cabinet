@@ -1,0 +1,15 @@
+diff --git a/node_modules/react-native-gifted-charts/src/LineChart/index.tsx b/node_modules/react-native-gifted-charts/src/LineChart/index.tsx
+index 8ef5ecc..f713ea5 100644
+--- a/node_modules/react-native-gifted-charts/src/LineChart/index.tsx
++++ b/node_modules/react-native-gifted-charts/src/LineChart/index.tsx
+@@ -308,8 +308,8 @@ type referenceConfigType = {
+ };
+ type itemType = {
+   value?: number;
+-  label: String;
+-  labelComponent: Function;
++  label?: String;
++  labelComponent?: Function;
+   labelTextStyle?: any;
+   dataPointText?: string;
+   textShiftX?: number;

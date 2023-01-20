@@ -30,7 +30,6 @@ export function TabBar(props: TabbarProps) {
   // const focusedRoute = routeNames[index];
 
   const pressTab = (item: string) => {
-    console.log(item);
     if (item === 'profile') {
       navigation.navigate('homeNavigation', {screen: item});
       setActiveTab(item);

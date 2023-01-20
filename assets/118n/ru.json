@@ -66,7 +66,18 @@
         "traffic":"Трафик",
         "subscriptionFee":"Абонентская плата:",
         "subscriptionEndTime":"Дата окончания абонентской платы",
-        "statistics":"Статистика"
+        "statistics":"Статистика",
+        "period":"Период",
+        "today":"Сегодня",
+        "yesterday":"Вчера",
+        "week":"Неделя",
+        "month":"Месяц",
+        "allSeassions":"Все сеансы",
+        "duration":"Длительность:",
+        "received":"Получено:",
+        "sent":"Отправлено:",
+        "summa":"Сумма:"
+
 
     }
 }

@@ -65,6 +65,16 @@
         "traffic":"Trafik",
         "subscriptionFee":"Abonent to‘lovi:",
         "subscriptionEndTime":"Abonent to'lovining tugash sanasi",
-        "statistics":"Statistika"
+        "statistics":"Statistika",
+        "period":"Davr",
+        "today":"Bugun",
+        "yesterday":"Kecha",
+        "week":"Hafta",
+        "month":"Oy",
+        "allSeassions":"Barcha seanslar",
+        "duration":"Davomiyligi:",
+        "received":"Qabul qildi:",
+        "sent":"Jonatildi:",
+        "summa":"Summa:"
     }
 }
