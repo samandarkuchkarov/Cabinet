@@ -268,6 +268,7 @@ export function Detail() {
 const styles = createTheme({
   wrapper: {
     padding: 20,
+    backgroundColor: '#FAFAFA',
   },
   title: {
     width: '100%',

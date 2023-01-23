@@ -317,11 +317,28 @@ export function UserCard() {
                   </Text>
                 </View>
               </View>
+              <Button
+                style={styles.mainlyBtn}
+                title="more"
+                fontFamily="Rubik-Regular"
+                onPress={() => {}}
+              />
+              <Button
+                style={styles.secondlyBtn}
+                textColor={getColor(Color.textBase)}
+                fontFamily="Rubik-Regular"
+                title="change"
+                onPress={() => {}}
+              />
             </View>
           ) : (
             <></>
           )}
         </View>
+        <Text style={styles.descSpeed}>
+          * Скорость выше 100 Мбит/с доступна по технологии GPON и при наличии
+          технической возможности по FTTx
+        </Text>
       </View>
       <PhoneEditModal
         modalVisible={phoneModal}

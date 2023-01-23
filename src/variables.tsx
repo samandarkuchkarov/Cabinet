@@ -8,6 +8,7 @@ import BePlusIcon from '../assets/svg/be-pluse.svg';
 import BonusIcon from '../assets/svg/bonus-tab.svg';
 import ChangePasswordIcon from '../assets/svg/changePassword.svg';
 import EditIcon from '../assets/svg/edit.svg';
+import FaceBookIcon from '../assets/svg/facebook.svg';
 import FilterIcon from '../assets/svg/filter.svg';
 import LangRuIcon from '../assets/svg/lang.svg';
 import LangUzbIcon from '../assets/svg/langUz.svg';
@@ -16,8 +17,11 @@ import ProfileIcon from '../assets/svg/profile-tab.svg';
 import SettingsIcon from '../assets/svg/settings-tab.svg';
 import SkidkaPartnerIcon from '../assets/svg/skidka_partner.svg';
 import StaticIcon from '../assets/svg/static-tab.svg';
+import TelegramIcon from '../assets/svg/telegram.svg';
 import UserIcon from '../assets/svg/user.svg';
 import WalletIcon from '../assets/svg/wallet-tab.svg';
+import YouTubeIcon from '../assets/svg/youTube.svg';
+
 export {
   LangUzbIcon as LangUzb,
   LogoIcon as Logo,
@@ -35,6 +39,9 @@ export {
   BePlusIcon as BePlus,
   SkidkaPartnerIcon as SkidkaPartner,
   FilterIcon as Filter,
+  TelegramIcon as Telegram,
+  FaceBookIcon as FaceBook,
+  YouTubeIcon as YouTube,
 };
 export const LIGHT_BG1 = '#FFFF';
 export const DARK_BG1 = '#000';

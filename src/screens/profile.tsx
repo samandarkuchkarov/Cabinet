@@ -4,6 +4,7 @@ import {ScrollView} from 'react-native';
 
 import {Color} from '@app/colors';
 import {BonusesCarusel} from '@app/components/bonuses-carusel';
+import {Footer} from '@app/components/footer';
 import {UserCard} from '@app/components/user-card';
 import {createTheme} from '@app/helpers';
 import {
@@ -21,13 +22,14 @@ export function Profile() {
     <ScrollView style={styles.mainWrapper}>
       <UserCard />
       <BonusesCarusel />
+      <Footer />
     </ScrollView>
   );
 }
 
 const styles = createTheme({
   mainWrapper: {
-    backgroundColor: Color.screenBg,
+    backgroundColor: '#FAFAFA',
     flex: 1,
   },
 });

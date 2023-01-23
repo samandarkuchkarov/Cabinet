@@ -10,13 +10,16 @@ import {
   Bonus,
   ChangePassword,
   Edit,
+  FaceBook,
   Filter,
   Profile,
   Settings,
   SkidkaPartner,
   Static,
+  Telegram,
   User,
   Wallet,
+  YouTube,
 } from '@app/variables';
 
 export type IconType = {
@@ -57,6 +60,12 @@ export const Icon = (props: IconType) => {
       return <SkidkaPartner {...props} fill={fill} />;
     case 'filter':
       return <Filter {...props} fill={fill} />;
+    case 'youTube':
+      return <YouTube {...props} fill={fill} />;
+    case 'telegram':
+      return <Telegram {...props} fill={fill} />;
+    case 'faceBook':
+      return <FaceBook {...props} fill={fill} />;
   }
   return null;
 };

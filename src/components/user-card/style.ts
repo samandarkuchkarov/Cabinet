@@ -267,4 +267,11 @@ export const styles = createTheme({
     fontSize: 17,
     fontFamily: 'Rubik-Regular',
   },
+  descSpeed: {
+    textAlign: 'center',
+    paddingHorizontal: 20,
+    marginTop: 20,
+    fontFamily: 'Rubik-Regular',
+    color: Color.placeHolder,
+  },
 });
