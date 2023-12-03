@@ -76,6 +76,22 @@
         "received":"Qabul qildi:",
         "sent":"Jonatildi:",
         "summa":"Summa:",
-        "change":"O'zgartirish"
+        "change":"O'zgartirish",
+        "connect":"Ulanmoq",
+        "speedAlert":"100 Mbit/s dan yuqori tezlik GPON texnologiyasi va, agar texnik jihatdan iloji bo'lsa, FTTx orqali mavjud.",
+        "bonusAlert":"Balansni oldindan to‘ldiring va abonent to‘lovi uchun oylik chegirmaga ega bo‘ling va trafikni 15% gacha oshiring!",
+        "note":"Eslatma",
+        "note1":"Barcha narxlar O'zbekiston Respublikasi qonunchiligining amaldagi stavkasi bo'yicha QQSni hisobga olgan holda so'mda ko'rsatilgan",
+        "note2":"Abonent to'lovi bir kalendar oy davomida amal qiladi",
+        "note3":"Abonent to'lovi har oyning 1-kunida yechib olinadi.",
+        "note4":"To'lov limiti cheklanmagan. Balansdan qolgan mablag' abonent to'lovining keyingi oyga o'tkaziladi",
+        "note5":"Tarif rejasi hisob-kitob davri oxirida shartnomaga imzolangan qo'shimcha kelishuv asosida o'zgartiriladi. Boshqa tarif rejasiga o'tish uchun hisobingizda mablag 'etarli bo'lishi kerak.",
+        "note6":"Kiritilgan yangi tariflar avtomatik ravishda faqat yangi foydalanuvchilar uchun amal qiladi. Amaldagi foydalanuvchilar uchun yangi tariflar tarif rejasini o'zgartirish to'g'risidagi shartnomaga qo'shimcha bitim imzolangandan keyingina kuchga kiradi.",
+        "note7":"Xizmatni faollashtirish, agar texnik imkoni bo'lsa, 5 ish kuni ichida amalga oshiriladi.",
+        "note8":"02.03.2022 y. dan boshlab 'TV PLUS' MCHJ tomonidan taqdim etiladigan IP-televideniye va onlayn-kinoteatr xizmatlari yangi va arhiv kiritilgan Comnet Internet provayderi tarif rejalariga kiritilmaydi.",
+        "note9":"100 Mbit/s dan yuqori tezlik GPON texnologiyasi yoki FTTx uchun texnik imkoniyat mavjud bo'lganda va faqat Comnet uskunasida (boshqa provayderlarning hamkorlik tarmog'iga taalluqli emas)",
+        "note10":"Internetga ulanish tezligi nafaqat Xizmatning texnik xususiyatlariga, balki IPLUS MChJga tegishli bo'lmagan Internet segmentlarini boshqaradigan (yoki ta'sir qiladigan) uchinchi shaxslar, tashkilotlar va shaxslarning harakatlariga ham bog'liqdir. Internetga kirish tezligi noaniq qiymat bo'lib, bir qator parametrlarga, shu jumladan ulanishning texnik xususiyatlari, yo'nalish va kanalni joriy yuklanishi, o'rnatilgan abonent uskunalari (kompyuter, smartfon, Wi-Fi router) xususiyatlariga bog'liq. ), dasturiy ta'minot versiyasi yoki ishlatilgan standart, so'ralgan tarkibning joylashuvi. Barcha parametrlar o'zgaruvchan va IPLUS MChJ o'z tarmog'idan tashqarida kafolat bermaydi. Tarif rejalarida ko'rsatilgan tezlik maksimal darajasi ko'rsatilgan",
+        "type":"Turi",
+        "byHelp":"Yordamida"
     }
 }

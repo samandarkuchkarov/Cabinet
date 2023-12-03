@@ -12,9 +12,12 @@ import {
   Edit,
   FaceBook,
   Filter,
+  Influence,
   Profile,
+  Row,
   Settings,
   SkidkaPartner,
+  Star,
   Static,
   Telegram,
   User,
@@ -66,6 +69,12 @@ export const Icon = (props: IconType) => {
       return <Telegram {...props} fill={fill} />;
     case 'faceBook':
       return <FaceBook {...props} fill={fill} />;
+    case 'star':
+      return <Star {...props} fill={fill} />;
+    case 'influence':
+      return <Influence {...props} fill={fill} />;
+    case 'row':
+      return <Row {...props} />;
   }
   return null;
 };

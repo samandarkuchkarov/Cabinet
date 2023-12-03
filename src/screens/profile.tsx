@@ -2,7 +2,6 @@ import React from 'react';
 
 import {ScrollView} from 'react-native';
 
-import {Color} from '@app/colors';
 import {BonusesCarusel} from '@app/components/bonuses-carusel';
 import {Footer} from '@app/components/footer';
 import {UserCard} from '@app/components/user-card';

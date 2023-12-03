@@ -1,5 +1,7 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 import {ScaledSize} from 'react-native';
+
+import {parseTariffProps} from './helpers';
 export type WindowSize = {
   WINDOW_HEIGHT?: ScaledSize | undefined;
   WINDOW_WIDTH?: ScaledSize | undefined;
@@ -17,6 +19,8 @@ export type TabParamList = {
   wallet: undefined;
   settings: undefined;
   detail: undefined;
+  tariffs: undefined;
+  tariffDetail: parseTariffProps;
 };
 
 export type RootStackParamList = {

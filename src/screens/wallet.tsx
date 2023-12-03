@@ -11,7 +11,7 @@ import {
 
 import {Color} from '@app/colors';
 import {Icon} from '@app/components/ui/icon';
-import {createTheme} from '@app/helpers';
+import {convertMethod, createTheme} from '@app/helpers';
 import {useTypedSelector} from '@app/hooks';
 import {useFees} from '@app/hooks/use-fees';
 import {usePayments} from '@app/hooks/use-payments';
@@ -101,22 +101,22 @@ export function Wallet() {
           <View style={styles.last}>
             {typeof item.extId === 'undefined' ? (
               <View>
-                <Text style={styles.placeHolder}>Тип:</Text>
+                <Text style={styles.placeHolder}>{t('type')}:</Text>
                 <Text>{item.innerDescribe ? item.innerDescribe : '-'}</Text>
               </View>
             ) : (
               <View>
-                <Text style={styles.placeHolder}>С помощью:</Text>
-                <Text>paymee</Text>
+                <Text style={styles.placeHolder}>{t('byHelp')}:</Text>
+                <Text>{convertMethod(item.method)}</Text>
               </View>
             )}
 
             <View>
-              <Text style={styles.placeHolder}>Сумма:</Text>
+              <Text style={styles.placeHolder}>{t('summa')}</Text>
               <Text>{item.sum}</Text>
             </View>
             <View style={styles.opacity}>
-              <Text style={styles.placeHolder}>Сумма:</Text>
+              <Text style={styles.placeHolder}>{t('summa')}</Text>
               <Text>{item.sum}</Text>
             </View>
           </View>
@@ -222,6 +222,7 @@ const styles = createTheme({
     elevation: 5,
     borderRadius: 10,
     marginTop: 10,
+    marginBottom: 10,
     position: 'relative',
   },
   item: {

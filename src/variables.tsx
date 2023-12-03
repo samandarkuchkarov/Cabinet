@@ -10,12 +10,15 @@ import ChangePasswordIcon from '../assets/svg/changePassword.svg';
 import EditIcon from '../assets/svg/edit.svg';
 import FaceBookIcon from '../assets/svg/facebook.svg';
 import FilterIcon from '../assets/svg/filter.svg';
+import InfluenceIcon from '../assets/svg/influence.svg';
 import LangRuIcon from '../assets/svg/lang.svg';
 import LangUzbIcon from '../assets/svg/langUz.svg';
 import LogoIcon from '../assets/svg/Logo.svg';
 import ProfileIcon from '../assets/svg/profile-tab.svg';
+import RowIcon from '../assets/svg/row-note.svg';
 import SettingsIcon from '../assets/svg/settings-tab.svg';
 import SkidkaPartnerIcon from '../assets/svg/skidka_partner.svg';
+import StarIcon from '../assets/svg/star.svg';
 import StaticIcon from '../assets/svg/static-tab.svg';
 import TelegramIcon from '../assets/svg/telegram.svg';
 import UserIcon from '../assets/svg/user.svg';
@@ -42,6 +45,9 @@ export {
   TelegramIcon as Telegram,
   FaceBookIcon as FaceBook,
   YouTubeIcon as YouTube,
+  InfluenceIcon as Influence,
+  StarIcon as Star,
+  RowIcon as Row,
 };
 export const LIGHT_BG1 = '#FFFF';
 export const DARK_BG1 = '#000';

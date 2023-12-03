@@ -35,6 +35,7 @@ export type feeProps = {
   uid: number;
   extId: string | undefined;
   innerDescribe: string | undefined;
+  method: number;
 };
 
 export type sessionProps = {
@@ -75,6 +76,7 @@ export type allTariffsProps = {
   comments: string;
   id: number;
   tpId: number;
+  name: string;
 };
 export type InitialUserStateProps = {
   isLogin: boolean | null;
@@ -198,6 +200,7 @@ export function user(state = InitialState, action: any) {
       data.fees = action.payload;
       break;
     case SET_PAYMENTS:
+      console.log(action.payload[0]);
       data.payments = action.payload;
       break;
     case SET_SESSIONS:

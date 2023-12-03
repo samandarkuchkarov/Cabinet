@@ -14,9 +14,10 @@ import {Home} from '@app/screens/home';
 import {Profile} from '@app/screens/profile';
 import {Settings} from '@app/screens/settings';
 import {Statistics} from '@app/screens/statistics';
+import {TariffDetail} from '@app/screens/tariff-detail';
+import {Tariffs} from '@app/screens/tariiffs';
 import {Wallet} from '@app/screens/wallet';
 import {TabParamList} from '@app/types';
-
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export const screenOptions = ({}: {
@@ -45,6 +46,8 @@ export function HomeNavigation() {
       <Tab.Screen name="wallet" component={Wallet} />
       <Tab.Screen name="settings" component={Settings} />
       <Tab.Screen name="detail" component={Detail} />
+      <Tab.Screen name="tariffs" component={Tariffs} />
+      <Tab.Screen name="tariffDetail" component={TariffDetail} />
     </Tab.Navigator>
   );
 }

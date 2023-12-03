@@ -79,7 +79,7 @@ export function UserCard() {
     if (allTariffs.length && tpId) {
       let tariff = allTariffs.filter(i => i.tpId === tpId)[0];
       if (tariff) {
-        let tariffData: parseTariffProps = parseTariff(tariff.comments);
+        let tariffData: parseTariffProps = parseTariff(tariff.comments, tariff);
         setCurrentTariff(tariffData);
       }
     }
@@ -321,7 +321,12 @@ export function UserCard() {
                 style={styles.mainlyBtn}
                 title="more"
                 fontFamily="Rubik-Regular"
-                onPress={() => {}}
+                onPress={() =>
+                  navigation.navigate('homeNavigation', {
+                    screen: 'tariffDetail',
+                    params: currentTariff,
+                  })
+                }
               />
               <Button
                 style={styles.secondlyBtn}

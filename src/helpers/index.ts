@@ -185,3 +185,40 @@ export function formatBytes(bytes: number, decimals = 2) {
 
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
+
+export const convertMethod = (method: number) => {
+  if (method === 1) {
+    return 'Банк';
+  }
+  if (method === 4) {
+    return 'Бонус';
+  }
+  if (method === 9) {
+    return 'Click';
+  }
+  if (method === 10) {
+    return 'Kassa';
+  }
+  if (method === 11) {
+    return 'Terminal';
+  }
+  if (method === 13) {
+    return 'Paynet';
+  }
+  if (method === 14) {
+    return 'Uzum';
+  }
+  if (method === 16) {
+    return 'Infinbank';
+  }
+  if (method === 17) {
+    return 'Octo';
+  }
+  if (method === 18) {
+    return 'Payme';
+  }
+  if (method === 76) {
+    return 'Paynet';
+  }
+  return method + '';
+};

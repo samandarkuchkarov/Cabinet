@@ -47,7 +47,13 @@ export function WifiModal({
               reactTag.current = findNodeHandle(ref);
             }}
             style={styles.whiteBlock}>
-            <TabButton title="tariffPlan" onPress={() => {}} />
+            <TabButton
+              title="tariffPlan"
+              onPress={() => {
+                navigation.navigate('homeNavigation', {screen: 'tariffs'});
+                setModalVisible(false);
+              }}
+            />
             <TabButton
               title="detail"
               onPress={() => {
